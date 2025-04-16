@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Cotización - Ferreservicios Industriales</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="LOGOTICKET.jpg" alt="Logo" class="logo">
+            <h1>Ferreservicios Industriales</h1>
+            <p>Seguridad Indsutrial, Guantes de Trabajos</p>
+            <p></p>
+        </div>
+        <h2>Cotización solicitada</h2>
+        <div id="resultado">
+            <!-- Aquí se mostrará la cotización -->
+        </div>
+        <div class="opciones">
+            <button id="enviarCorreo" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Enviar por Correo
+            </button>
+            <button id="guardarPDF" class="btn btn-success">
+                <i class="fas fa-file-pdf"></i> Guardar en PDF
+            </button>
+            <button id="regresarInicio" class="btn btn-secondary" onclick="window.location.href='index.html'">
+                <i class="fas fa-home"></i> Regresar al Inicio
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts necesarios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Inicialización de EmailJS -->
+    <script>
+        // Inicializa EmailJS con tu API Key
+        emailjs.init('kYrUmFZHE99ZYN3Lp');
+        
+        // Función de diagnóstico
+        function testEmailJS() {
+            console.log("Estado de EmailJS:");
+            console.log("User ID configurado:", emailjs.defaults.user_id);
+            console.log("Servicios disponibles:", emailjs.defaults.services);
+        }
+        testEmailJS();
+    </script>
+    
+    <script src="resultado.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    emailjs.init('kYrUmFZHE99ZYN3Lp'); // Tu API Key de EmailJS
+</script> 
+</body>
+</html>

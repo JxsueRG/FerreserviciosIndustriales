@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizacion con Papel - Ferreservicios Industriales</title>
+    <link rel="stylesheet" href="ticket-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilo adicional para el botón de inicio */
+        .btn-inicio {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 15px;
+            background-color: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+        
+        .btn-inicio:hover {
+            background-color: #A0522D;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="LOGOTICKET.jpg" alt="Logo" class="logo">
+            <h1>FERRESERVICIOS INDUSTRIALES</h1>
+            <p>Cotizacion por PAPEL</p>
+        </div>
+        
+        <form id="ticketForm" class="form-container">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="clienteTicket">Cliente:</label>
+                    <input type="text" id="clienteTicket" name="cliente" placeholder="Nombre del cliente">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fechaTicket">Fecha:</label>
+                    <input type="datetime-local" id="fechaTicket" name="fecha" required>
+                </div>
+            </div>
+            
+            <div class="productos-container">
+                <h3>Productos <i class="fas fa-box-open"></i></h3>
+                <div class="table-responsive">
+                    <table id="tablaProductosTicket">
+                        <thead>
+                            <tr>
+                                <th width="15%">Cant.</th>
+                                <th width="45%">Descripción</th>
+                                <th width="20%">P. Unit.</th>
+                                <th width="15%">Total</th>
+                                <th width="5%"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Productos dinámicos -->
+                        </tbody>
+                    </table>    
+                </div>
+                <button type="button" id="agregarProductoTicket" class="btn btn-primary">
+                    <i class="fas fa-plus-circle"></i> Agregar Producto
+                </button>
+            </div>
+            
+            <div class="total-container">
+                <div class="total-box">
+                    <span>Total:</span>
+                    <span id="totalTicket">$0.00</span>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" id="imprimirTicket" class="btn btn-success">
+                    <i class="fas fa-print"></i> Imprimir Ticket
+                </button>
+                <button type="button" id="nuevoTicket" class="btn btn-primary">
+                    <i class="fas fa-file-alt"></i> Nuevo Ticket
+                </button>
+                <button id="regresarInicio" class="btn btn-secondary" onclick="window.location.href='index.html'">
+                    <i class="fas fa-home"></i> Regresar al Inicio
+                </button>
+            </div>
+        </form>
+        <div class="ticket-row"><span class="ticket-label">Folio:</span> <span id="ticketFolio"></span></div>
+        
+        <!-- Vista previa oculta para impresión -->
+        <div id="ticketPreview" class="ticket-preview">
+            <div class="ticket-header">
+                <div class="ticket-title">FERRESERVICIOS INDUSTRIALES</div>
+                <div class="ticket-subtitle">Seguridad Indsutrial, Guantes de Trabajos</div>
+                <div class="ticket-info">FCO. SARABIA No. 32B COL.RAMON FARIAS</div>
+                <div class="ticket-info">URUAPAN, MICH. TEL: 452-524-3069</div>
+                <div class="ticket-info">RFC: MOAG7303244F5</div>
+                <div class="ticket-divider">-----------------------------</div>
+            </div>
+            
+            <div class="ticket-body">
+                <div class="ticket-row"><span class="ticket-label">Cliente:</span> <span id="ticketCliente">CONSUMIDOR FINAL</span></div>
+                <div class="ticket-row"><span class="ticket-label">Fecha:</span> <span id="ticketFecha"></span></div>
+                <div class="ticket-divider">-----------------------------</div>
+                
+                <table class="ticket-productos">
+                    <thead>
+                        <tr>
+                            <th width="15%">Cant.</th>
+                            <th width="45%">Descripción</th>
+                            <th width="20%">P.U.</th>
+                            <th width="20%">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ticketProductosBody">
+                        <!-- Productos dinámicos -->
+                    </tbody>
+                </table>
+                
+                <div class="ticket-divider">-----------------------------</div>
+                <div class="ticket-total"><span class="ticket-label">TOTAL:</span> <span id="ticketTotal">$0.00</span></div>
+                <div class="ticket-divider">-----------------------------</div>
+                <div class="ticket-footer">¡GRACIAS POR SU PREFERENCIA!</div>
+                <div class="ticket-footer">Venta sujeta a cambio solo con ticket</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ticket.js"></script>
+</body>
+</html>

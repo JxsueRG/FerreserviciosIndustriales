@@ -1,0 +1,264 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    background: linear-gradient(135deg, #002b5c 0%, #004a8f 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 10px;
+    filter: brightness(0) invert(1);
+}
+
+/* Formulario */
+.form-container {
+    background: #f9fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e1e5eb;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #002b5c;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Tabla de productos */
+.productos-container {
+    margin: 20px 0;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #e1e5eb;
+}
+
+#tablaProductosTicket {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+#tablaProductosTicket th {
+    background: #002b5c;
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+    text-align: center;
+}
+
+#tablaProductosTicket td {
+    padding: 8px;
+    border-bottom: 1px solid #e1e5eb;
+    vertical-align: middle;
+}
+
+#tablaProductosTicket input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #d1d5db;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+#tablaProductosTicket .btn-eliminar {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Total */
+.total-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0;
+}
+
+.total-box {
+    background: #f8f9fa;
+    border: 1px solid #e1e5eb;
+    border-radius: 6px;
+    padding: 12px 20px;
+    text-align: right;
+    min-width: 200px;
+}
+
+.total-box span:first-child {
+    font-weight: 500;
+    color: #002b5c;
+    margin-right: 10px;
+}
+
+.total-box span:last-child {
+    font-weight: 700;
+    font-size: 18px;
+    color: #002b5c;
+}
+
+/* Botones */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: #002b5c;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #004a8f;
+}
+
+.btn-success {
+    background: #27ae60;
+    color: white;
+}
+
+.btn-success:hover {
+    background: #2ecc71;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Vista previa del ticket (oculta por defecto) */
+.ticket-preview {
+    display: none;
+}
+
+/* Estilos para el ticket impreso */
+.ticket-header, .ticket-body, .ticket-footer {
+    margin-bottom: 10px;
+}
+
+.ticket-divider {
+    border-top: 1px dashed #000;
+    margin: 5px 0;
+}
+
+.ticket-total {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+    font-size: 12px;
+}
+
+.ticket-label {
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #ticketPreview, #ticketPreview * {
+        visibility: visible;
+    }
+    #ticketPreview {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+}
