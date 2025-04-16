@@ -182,10 +182,20 @@ document.addEventListener("DOMContentLoaded", function () {
             try {
                 const logo = new Image();
                 logo.src = "LOGOTICKET.jpg";
-                doc.addImage(logo, 'JPEG', 15, 15, 40, 15);
+            
+                logo.onload = function () {
+                    doc.addImage(logo, 'JPEG', 15, 15, 30, 20); // Aquí ajustas proporción y tamaño
+                    doc.save("cotizacion.pdf"); // Guarda o continúa tu flujo aquí
+                };
+            
+                logo.onerror = function (e) {
+                    console.warn("No se pudo cargar el logo:", e);
+                    doc.save("cotizacion.pdf"); // Incluso si falla, sigue
+                };
             } catch (e) {
-                console.warn("No se pudo cargar el logo:", e);
+                console.warn("Error al intentar insertar el logo:", e);
             }
+            
 
             // Información de la empresa
             doc.setFontSize(10);
